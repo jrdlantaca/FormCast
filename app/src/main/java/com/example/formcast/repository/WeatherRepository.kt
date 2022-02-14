@@ -2,9 +2,9 @@ package com.example.formcast.repository
 
 import androidx.compose.runtime.MutableState
 import androidx.room.withTransaction
+import com.example.formcast.BuildConfig
 import com.example.formcast.api.WeatherService
 import com.example.formcast.db.WeatherDatabase
-import com.example.formcast.utils.API_KEY
 import com.example.formcast.utils.networkBoundResource
 import com.example.formcast.vo.Weather
 import kotlinx.coroutines.delay
@@ -28,7 +28,7 @@ class WeatherRepository @Inject constructor(
                 lat = lat,
                 lon = lon,
                 exclude = null,
-                apiId = API_KEY,
+                apiId = BuildConfig.API_KEY,
                 units = "metric"
             )
             weatherList.add(response.body()!!)

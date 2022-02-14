@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -89,7 +90,9 @@ fun CurrentWeatherDetails(
                                 )
                             ),
                             contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().align(Alignment.CenterVertically)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .align(Alignment.CenterVertically)
                         )
                     }
                     Row(horizontalArrangement = Arrangement.Center) {
@@ -99,7 +102,12 @@ fun CurrentWeatherDetails(
                             fontSize = 26.sp,
                             textAlign = TextAlign.Center,
                             modifier = Modifier
-                                .fillMaxWidth()
+                                .fillMaxWidth(),
+                            color = if(isSystemInDarkTheme()){
+                                Color.White
+                            }else{
+                                Color.Black
+                            },
                         )
                     }
                     Row(horizontalArrangement = Arrangement.Center) {
@@ -107,7 +115,13 @@ fun CurrentWeatherDetails(
                             text = "${data[0].current?.weatherDesc?.get(0)?.description}",
                             fontSize = 20.sp,
                             textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            color = if(isSystemInDarkTheme()){
+                                Color.White
+                            }else{
+                                Color.Black
+                            },
+
                         )
                     }
                     Row(horizontalArrangement = Arrangement.Center) {
@@ -115,7 +129,12 @@ fun CurrentWeatherDetails(
                             text = "$cityName, $stateName",
                             fontSize = 18.sp,
                             textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            color = if(isSystemInDarkTheme()){
+                                Color.White
+                            }else{
+                                Color.Black
+                            },
                         )
                     }
                     Row(horizontalArrangement = Arrangement.Center) {
@@ -123,7 +142,12 @@ fun CurrentWeatherDetails(
                             text = localTime,
                             fontSize = 18.sp,
                             textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            color = if(isSystemInDarkTheme()){
+                                Color.White
+                            }else{
+                                Color.Black
+                            },
                         )
                     }
                 }
